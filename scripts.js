@@ -1,53 +1,73 @@
 
 (function(doc, win) {
-  const initializeTheme = () => {
-    const THEME_STORAGE_KEY = "theme-preference";
-    const THEME_ATTR = "data-theme";
 
-  
-    const themePreferenceMediaQuery = win.matchMedia("(prefers-color-scheme: dark)");
-    const preferredTheme = getThemePreference();
+  class ThemeUtilities {
+    static THEME_STORAGE_KEY = "theme-preference";
+    static THEME_ATTR = "data-theme";
 
-    const themeToggles = doc.querySelectorAll(".toggle.theme[type=\"button\"][role=\"switch\"]");
-    themeToggles.forEach((toggle) => {
-      
-      // ensure all theme toggles are in sync in the system's preferred theme
-      toggle.setAttribute("aria-checked", preferredTheme === "dark");
+    static getCurrentPageTheme() {
+      return doc.firstElementChild.getAttribute(ThemeUtilities.THEME_ATTR);
+    }
 
-      // update the whole sites theme
-      setThemePreference(preferredTheme);
+    static getSystemThemePreferenceMedia() {
+      return win.matchMedia("(prefers-color-scheme: dark)");
+    }
 
-      toggle.addEventListener("click", () => {
-        const nextTheme = doc.firstElementChild.getAttribute(THEME_ATTR) === "dark"
-        ? "light" 
-        : "dark";
-        setThemePreference(nextTheme);
-        toggle.ariaChecked = nextTheme === "dark";
+    static getThemeToggles() {
+      return doc.querySelectorAll(".toggle.theme[type=\"button\"][role=\"switch\"]");
+    }
+
+    static syncThemeToggles(preferredTheme) {
+      ThemeUtilities.getThemeToggles().forEach((toggle) => {
+        // ensure all theme toggles are in sync in the system's preferred theme
+        toggle.setAttribute("aria-checked", preferredTheme === "dark");
       });
-    });
+    }
 
-    // always sync with system's preferred theme
-    themePreferenceMediaQuery.addEventListener("change", ({ matches: isDark }) => {
-      setThemePreference(isDark ? "dark" : "light");
-    });
-
-    function getThemePreference() {
-      if (localStorage.getItem(THEME_STORAGE_KEY)) {
-        return localStorage.getItem(THEME_STORAGE_KEY);
+    static getThemePreference() {
+      if (localStorage.getItem(ThemeUtilities.THEME_STORAGE_KEY)) {
+        return localStorage.getItem(ThemeUtilities.THEME_STORAGE_KEY);
       }
 
-      return themePreferenceMediaQuery.matches
+      return getSystemThemePreferenceMedia().matches
         ? "dark"
         : "light";
     }
 
-    function setThemePreference(theme) {
+    static setThemePreference(theme) {
       // HTML tag
       doc.firstElementChild.setAttribute("data-theme", theme);
 
-      localStorage.setItem(THEME_STORAGE_KEY, theme);
+      localStorage.setItem(ThemeUtilities.THEME_STORAGE_KEY, theme);
     }
+  } 
+
+  const initializeTheme = () => {
+    const themeToggles = ThemeUtilities.getThemeToggles();
+    
+    const preferredTheme = ThemeUtilities.getThemePreference();
+    ThemeUtilities.setThemePreference(preferredTheme);
+    themeToggles.forEach((toggle) => {
+      // ensure all theme toggles are in sync in the system's preferred theme
+      toggle.setAttribute("aria-checked", preferredTheme === "dark");
+
+      toggle.addEventListener("click", () => {
+        const nextTheme = ThemeUtilities.getCurrentPageTheme() === "dark"
+        ? "light" 
+        : "dark";
+        ThemeUtilities.setThemePreference(nextTheme);
+        toggle.ariaChecked = nextTheme === "dark";
+      });
+    });
   }
+
+    // always sync with system's preferred theme
+  const themePreferenceMediaQuery = ThemeUtilities.getSystemThemePreferenceMedia();
+  themePreferenceMediaQuery.addEventListener("change", ({ matches: isDark }) => {
+    const preferredTheme = isDark ? "dark" : "light"
+    ThemeUtilities.syncThemeToggles(preferredTheme);
+    ThemeUtilities.setThemePreference(preferredTheme);
+  });
 
   doc.addEventListener("DOMContentLoaded", initializeTheme);
 
