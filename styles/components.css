@@ -1,4 +1,6 @@
 
+/* === button === */
+
 .button[type="button"] {
   padding-block: 1rem;
   padding-inline: 1.8rem;
@@ -8,7 +10,6 @@
   border: 1px solid var(--btn-border);
   border-radius: 1.5em;
 
-  cursor: pointer;
   transition: 
     color 200ms ease-in,
     background-color 200ms ease-in;
@@ -37,3 +38,51 @@
   color: var(--btn-color-primary-hover);
   background-color: var(--btn-bg-primary-hover);
 }
+
+/* === end of button === */
+
+.toggle.theme[type="button"][role="switch"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.4rem;
+
+  border-radius: 1.2rem;
+  
+  aspect-ratio: 1;
+  transition: background-color 200ms ease-in;
+}
+
+.toggle.theme[type="button"][role="switch"] {
+  background-color: var(--toggle-theme-bg);
+}
+
+.toggle.theme[type="button"][role="switch"]:hover {
+  background-color: var(--toggle-theme-bg-hover);
+}
+
+.toggle.theme[type="button"][role="switch"][aria-checked="false"] {
+  & #light {
+    display: none;
+  }
+
+  & #dark {
+    display: block;
+  }
+}
+
+.toggle.theme[type="button"][role="switch"][aria-checked="true"] {
+    & #light {
+    display: block;
+  }
+
+  & #dark {
+    display: none;
+  }
+}
+
+.toggle[type="button"][role="switch"]:focus {
+  outline: 2px solid var(--toggle-outline-focus);
+  outline-offset: 2px;
+}   
+
