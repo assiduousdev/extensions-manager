@@ -179,5 +179,26 @@ article.extension-card {
 
 /* === end of extension card === */
 
+/* === header === */
+
+header.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+
+  background-color: var(--header-bg);
+  border-radius: 1.2rem;
+
+
+  & div {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+}
+
+/* === end of header === */
+
 
 

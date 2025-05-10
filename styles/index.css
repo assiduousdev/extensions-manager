@@ -66,6 +66,8 @@ html[data-theme="light"] {
   --article-bg: hsl(var(--clr-light-400));
   --article-body-color: hsl(var(--clr-dark-100));
   --article-border-color: hsl(var(--clr-light-100) / 0.5);
+
+  --header-bg: hsl(var(--clr-light-400));
 }
 
 html[data-theme="dark"] {
@@ -84,7 +86,7 @@ html[data-theme="dark"] {
   --btn-bg-primary-hover: hsl(var(--clr-accent-100));
   --btn-border-color-primary-hover: hsl(var(--clr-accent-100));
 
-  --toggle-theme-bg: hsl(var(--clr-dark-200));
+  --toggle-theme-bg: hsl(var(--clr-dark-300));
   --toggle-theme-bg-hover: hsl(var(--clr-dark-100));
 
   --toggle-switch-track-bg: hsl(var(--clr-dark-100));
@@ -95,6 +97,8 @@ html[data-theme="dark"] {
   --article-bg: hsl(var(--clr-dark-200));
   --article-body-color: hsl(var(--clr-light-100));
   --article-border-color: hsl(var(--clr-dark-100) / 0.5);
+
+  --header-bg: hsl(var(--clr-dark-200));
 }
 
 /* === reset === */

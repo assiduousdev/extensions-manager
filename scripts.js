@@ -55,6 +55,7 @@
         const nextTheme = ThemeUtilities.getCurrentPageTheme() === "dark"
         ? "light" 
         : "dark";
+        ThemeUtilities.syncThemeToggles(nextTheme);
         ThemeUtilities.setThemePreference(nextTheme);
         toggle.ariaChecked = nextTheme === "dark";
       });
