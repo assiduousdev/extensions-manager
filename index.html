@@ -7,68 +7,557 @@
   <link rel="icon" type="image/svg" sizes="32x32" href="./assets/images/site-logo.svg">
   
   <title>Browser extensions manager</title>
+
+  <link rel="stylesheet" href="./styles/index.css">
+  <link rel="stylesheet" href="./styles/components.css">
+  <link rel="stylesheet" href="./styles/home.css">
 </head>
-<body>
+<body class="container">
+  <header class="header shadow-400">
+      <div>
+        <img src="./assets/images/logo.svg" alt="Extensions Manager Logo">
+        <p class="fs-700 semibold">Extensions</p>
+      </div>
 
-  Extensions List
+      <button
+        role="switch"
+        class="toggle theme" 
+        type="button"
 
-  All
-  Active
-  Inactive
+        aria-label="Set current theme to dark mode"
+        aria-checked="false"
+      >
+        <svg id="light" aria-hidden="true" aria xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 22 22">
+          <g clip-path="url(#a)">
+            <path stroke="#FBFDFE" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.98" d="M11 1.833v1.834m0 14.666v1.834M3.667 11H1.833m3.955-5.212L4.492 4.492m11.72 1.296 1.297-1.296M5.788 16.215l-1.296 1.296m11.72-1.296 1.297 1.296M20.167 11h-1.834m-2.75 0a4.583 4.583 0 1 1-9.167 0 4.583 4.583 0 0 1 9.167 0Z"/>
+          </g>
+          <defs>
+            <clipPath id="a">
+              <path fill="#fff" d="M0 0h22v22H0z"/>
+            </clipPath>
+          </defs>
+        </svg>
 
-  <!-- If you plan to use the JSON file to populate the data dynamically, you can delete the content below -->
+        <svg id="dark" aria-hidden="true" aria xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 22 22">
+          <g clip-path="url(#a)">
+            <path stroke="#091540" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.98" d="M20.125 11.877A7.333 7.333 0 1 1 10.124 1.875a9.168 9.168 0 1 0 10.001 10.002Z"/>
+          </g>
+          <defs>
+            <clipPath id="a">
+              <path fill="#fff" d="M0 0h22v22H0z"/>
+            </clipPath>
+          </defs>
+        </svg>
+    </button>
+  </header>
 
-  DevLens
-  Quickly inspect page layouts and visualize element boundaries.
-  Remove
+  <main>
+    <section id="extension-controls__wrapper">
+      <h1 class="fs-600 medium">Extensions List</h1>
+      
+      <div class="flex" style="--gap: 1.2rem">
+        <button class="button active shadow-400" type="button">All</button>
+        <button class="button shadow-400" type="button">Active</button>
+        <button class="button shadow-400" type="button">Inactive</button>
+      </div>
+    </section>
 
-  StyleSpy
-  Instantly analyze and copy CSS from any webpage element.
-  Remove
+    <!-- Not really happy with this one -->
+    <section id="extensions">
+      <article class="extension-card shadow-400" aria-labelledby="DevLens">
+        <section class="extension-card__content-wrapper">
+          <img src="./assets/images/logo-devlens.svg" alt="DevLens Logo">
 
-  SpeedBoost
-  Optimizes browser resource usage to accelerate page loading.
-  Remove
+          <section>
+            <header>
+              <h3
+                class="fs-500 medium" 
+                id="DevLens"
+              >
+                DevLens
+              </h3>
+            </header>
+            
+            <section>
+                <p>Quickly inspect page layouts and visualize element boundaries.</p>
+            </section>
+          </section>
+        </section>
 
-  JSONWizard
-  Formats, validates, and prettifies JSON responses in-browser.
-  Remove
+        <footer>
+          <button 
+            class="button button-primary" 
+            type="button"
+          >
+            Remove
+          </button>
 
-  TabMaster Pro
-  Organizes browser tabs into groups and sessions.
-  Remove
+          <label for="toggle-dev-lens">
+            <span class="sr-only">Enable DevLens extension</span>
+            <input
+              id="toggle-dev-lens" 
+              type="checkbox"
+              class="toggle switch"
+              
+              role="switch"
+            />
+          </label>
+        </footer>
+      </article>
 
-  ViewportBuddy
-  Simulates various screen resolutions directly within the browser.
-  Remove
+      <article class="extension-card shadow-400" aria-labelledby="StyleSpy">
+        <section class="extension-card__content-wrapper">
+          <img src="./assets/images/logo-style-spy.svg" alt="StyleSpy Logo">
 
-  Markup Notes
-  Enables annotation and notes directly onto webpages for collaborative debugging.
-  Remove
+          <section>
+            <header>
+              <h3
+                class="fs-500 medium" 
+                id="StyleSpy"
+              >
+                StyleSpy
+              </h3>
+            </header>
+            
+            <section>
+                <p>Instantly analyze and copy CSS from any webpage element.</p>
+            </section>
+          </section>
+        </section>
 
-  GridGuides
-  Overlay customizable grids and alignment guides on any webpage.
-  Remove
+        <footer>
+          <button 
+            class="button button-primary" 
+            type="button"
+          >
+            Remove
+          </button>
 
-  Palette Picker
-  Instantly extracts color palettes from any webpage.
-  Remove
+          <label for="toggle-style-spy">
+            <span class="sr-only">Enable StyleSpy extension</span>
+            <input
+              id="toggle-style-spy" 
+              type="checkbox"
+              class="toggle switch"
+              
+              role="switch"
+            />
+          </label>
+        </footer>
+      </article>
 
-  LinkChecker
-  Scans and highlights broken links on any page.
-  Remove
+      <article class="extension-card shadow-400" aria-labelledby="SpeedBoost">
+        <section class="extension-card__content-wrapper">
+          <img src="./assets/images/logo-speed-boost.svg" alt="DevLens Logo">
 
-  DOM Snapshot
-  Capture and export DOM structures quickly.
-  Remove
+          <section>
+            <header>
+              <h3
+                class="fs-500 medium" 
+                id="SpeedBoost"
+              >
+                SpeedBoost
+              </h3>
+            </header>
+            
+            <section>
+              <p>Optimizes browser resource usage to accelerate page loading.</p>
+            </section>
+          </section>
+        </section>
 
-  ConsolePlus
-  Enhanced developer console with advanced filtering and logging.
-  Remove
+        <footer>
+          <button 
+            class="button button-primary" 
+            type="button"
+          >
+            Remove
+          </button>
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+          <label for="toggle-speed-boost">
+            <span class="sr-only">Enable SpeedBoost extension</span>
+            <input
+              id="toggle-speed-boost" 
+              type="checkbox"
+              class="toggle switch"
+              
+              role="switch"
+            />
+          </label>
+        </footer>
+      </article>
+
+      <article class="extension-card shadow-400" aria-labelledby="JSONWizard">
+        <section class="extension-card__content-wrapper">
+          <img src="./assets/images/logo-tab-master-pro.svg" alt="JSONWizard Logo">
+
+          <section>
+            <header>
+              <h3
+                class="fs-500 medium" 
+                id="JSONWizard"
+              >
+                JSONWizard
+              </h3>
+            </header>
+            
+            <section>
+                <p>Formats, validates, and prettifies JSON responses in-browser.</p>
+            </section>
+          </section>
+        </section>
+
+        <footer>
+          <button 
+            class="button button-primary" 
+            type="button"
+          >
+            Remove
+          </button>
+
+          <label for="toggle-json-wizard">
+            <span class="sr-only">Enable JSONWizard extension</span>
+            <input
+              id="toggle-json-wizard" 
+              type="checkbox"
+              class="toggle switch"
+              
+              role="switch"
+            />
+          </label>
+        </footer>
+      </article>
+
+      <article class="extension-card shadow-400" aria-labelledby="TabMaster Pro">
+        <section class="extension-card__content-wrapper">
+          <img src="./assets/images/logo-viewport-buddy.svg" alt="TabMaster Pro Logo">
+
+          <section>
+            <header>
+              <h3
+                class="fs-500 medium" 
+                id="TabMaster_Pro"
+              >
+                TabMaster Pro
+              </h3>
+            </header>
+            
+            <section>
+                <p>Quickly inspect page layouts and visualize element boundaries.</p>
+            </section>
+          </section>
+        </section>
+
+        <footer>
+          <button 
+            class="button button-primary" 
+            type="button"
+          >
+            Remove
+          </button>
+
+          <label for="toggle-tabmaster-pro">
+            <span class="sr-only">Enable TabMaster Pro extension</span>
+            <input
+              id="toggle-tabmaster-pro" 
+              type="checkbox"
+              class="toggle switch"
+              
+              role="switch"
+            />
+          </label>
+        </footer>
+      </article>
+
+      <article class="extension-card shadow-400" aria-labelledby="ViewportBuddy">
+        <section class="extension-card__content-wrapper">
+          <img src="./assets/images/logo-markup-notes.svg" alt="ViewportBuddy Logo">
+
+          <section>
+            <header>
+              <h3
+                class="fs-500 medium" 
+                id="ViewportBuddy"
+              >
+                ViewportBuddy
+              </h3>
+            </header>
+            
+            <section>
+                <p>Enables annotation and notes directly onto webpages for collaborative debugging.</p>
+            </section>
+          </section>
+        </section>
+
+        <footer>
+          <button 
+            class="button button-primary" 
+            type="button"
+          >
+            Remove
+          </button>
+
+          <label for="toggle-viewport-buddy">
+            <span class="sr-only">Enable ViewportBuddy extension</span>
+            <input
+              id="toggle-viewport-buddy" 
+              type="checkbox"
+              class="toggle switch"
+              
+              role="switch"
+            />
+          </label>
+        </footer>
+      </article>
+
+      <article class="extension-card shadow-400" aria-labelledby="Markup Notes">
+        <section class="extension-card__content-wrapper">
+          <img src="./assets/images/logo-markup-notes.svg" alt="Markup Notes Logo">
+
+          <section>
+            <header>
+              <h3
+                class="fs-500 medium" 
+                id="Markup_Notes"
+              >
+                Markup Notes
+              </h3>
+            </header>
+            
+            <section>
+                <p>Enables annotation and notes directly onto webpages for collaborative debugging.</p>
+            </section>
+          </section>
+        </section>
+
+        <footer>
+          <button 
+            class="button button-primary" 
+            type="button"
+          >
+            Remove
+          </button>
+
+          <label for="toggle-markup-notes">
+            <span class="sr-only">Enable Markup Notes extension</span>
+            <input
+              id="toggle-markup-notes" 
+              type="checkbox"
+              class="toggle switch"
+              
+              role="switch"
+            />
+          </label>
+        </footer>
+      </article>
+
+      <article class="extension-card shadow-400" aria-labelledby="GridGuides">
+        <section class="extension-card__content-wrapper">
+          <img src="./assets/images/logo-grid-guides.svg" alt="GridGuides Logo">
+
+          <section>
+            <header>
+              <h3
+                class="fs-500 medium" 
+                id="GridGuides"
+              >
+                GridGuides
+              </h3>
+            </header>
+            
+            <section>
+                <p>Overlay customizable grids and alignment guides on any webpage.</p>
+            </section>
+          </section>
+        </section>
+
+        <footer>
+          <button 
+            class="button button-primary" 
+            type="button"
+          >
+            Remove
+          </button>
+
+          <label for="toggle-grid-guides">
+            <span class="sr-only">Enable GridGuides extension</span>
+            <input
+              id="toggle-grid-guides" 
+              type="checkbox"
+              class="toggle switch"
+              
+              role="switch"
+            />
+          </label>
+        </footer>
+      </article>
+
+      <article class="extension-card shadow-400" aria-labelledby="Palette Picker">
+        <section class="extension-card__content-wrapper">
+          <img src="./assets/images/logo-palette-picker.svg" alt="Palette Picker Logo">
+
+          <section>
+            <header>
+              <h3
+                class="fs-500 medium" 
+                id="Palette_Picker"
+              >
+                Palette Picker
+              </h3>
+            </header>
+            
+            <section>
+                <p>Enables annotation and notes directly onto webpages for collaborative debugging.</p>
+            </section>
+          </section>
+        </section>
+
+        <footer>
+          <button 
+            class="button button-primary" 
+            type="button"
+          >
+            Remove
+          </button>
+
+          <label for="toggle-pallete-picker">
+            <span class="sr-only">Enable Palette Picker extension</span>
+            <input
+              id="toggle-pallete-picker" 
+              type="checkbox"
+              class="toggle switch"
+              
+              role="switch"
+            />
+          </label>
+        </footer>
+      </article>
+
+      <article class="extension-card shadow-400" aria-labelledby="LinkChecker">
+        <section class="extension-card__content-wrapper">
+          <img src="./assets/images/logo-link-checker.svg" alt="LinkChecker Logo">
+
+          <section>
+            <header>
+              <h3
+                class="fs-500 medium" 
+                id="LinkChecker"
+              >
+                LinkChecker
+              </h3>
+            </header>
+            
+            <section>
+                <p>Scans and highlights broken links on any page.</p>
+            </section>
+          </section>
+        </section>
+
+        <footer>
+          <button 
+            class="button button-primary" 
+            type="button"
+          >
+            Remove
+          </button>
+
+          <label for="toggle-link-clicker">
+            <span class="sr-only">Enable LinkChecker extension</span>
+            <input
+              id="toggle-link-clicker" 
+              type="checkbox"
+              class="toggle switch"
+              
+              role="switch"
+            />
+          </label>
+        </footer>
+      </article>
+
+      <article class="extension-card shadow-400" aria-labelledby="DOM Snapshot">
+        <section class="extension-card__content-wrapper">
+          <img src="./assets/images/logo-dom-snapshot.svg" alt="DOM Snapshot Logo">
+
+          <section>
+            <header>
+              <h3
+                class="fs-500 medium" 
+                id="DOM_Snapshot"
+              >
+                DOM Snapshot
+              </h3>
+            </header>
+            
+            <section>
+                <p>Capture and export DOM structures quickly.</p>
+            </section>
+          </section>
+        </section>
+
+        <footer>
+          <button 
+            class="button button-primary" 
+            type="button"
+          >
+            Remove
+          </button>
+
+          <label for="toggle-dom-snapshot">
+            <span class="sr-only">Enable DOM Snapshot extension</span>
+            <input
+              id="toggle-dom-snapshot" 
+              type="checkbox"
+              class="toggle switch"
+              
+              role="switch"
+            />
+          </label>
+        </footer>
+      </article>
+
+      <article class="extension-card shadow-400" aria-labelledby="ConsolePlus">
+        <section class="extension-card__content-wrapper">
+          <img src="./assets/images/logo-console-plus.svg" alt="ConsolePlus Logo">
+
+          <section>
+            <header>
+              <h3
+                class="fs-500 medium" 
+                id="ConsolePlus"
+              >
+                ConsolePlus
+              </h3>
+            </header>
+            
+            <section>
+                <p>Enhanced developer console with advanced filtering and logging.</p>
+            </section>
+          </section>
+        </section>
+
+        <footer>
+          <button 
+            class="button button-primary" 
+            type="button"
+          >
+            Remove
+          </button>
+
+          <label for="toggle-console-plus">
+            <span class="sr-only">Enable ConsolePlus extension</span>
+            <input
+              id="toggle-console-plus" 
+              type="checkbox"
+              class="toggle switch"
+              
+              role="switch"
+            />
+          </label>
+        </footer>
+      </article>
+    </section>
+  </main>
+
+  <script src="./scripts.js" type="text/javascript"></script>
 </body>
 </html>

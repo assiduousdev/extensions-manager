@@ -185,6 +185,11 @@ button {
 
 /* === utilities === */
 
+.flex {
+  display: flex;
+  gap: var(--gap, 1.6rem);
+}
+
 .container {
   max-width: 120rem;
   margin-inline: auto;

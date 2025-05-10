@@ -148,6 +148,7 @@ article.extension-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 1.6rem;
   padding: 1.6rem;
   min-height: 20rem;
   max-width: 40rem;
