@@ -36,6 +36,7 @@
 
 .button[type="button"].button-primary:hover {
   color: var(--btn-color-primary-hover);
+  border-color: var(--btn-border-color-primary-hover);
   background-color: var(--btn-bg-primary-hover);
 }
 
