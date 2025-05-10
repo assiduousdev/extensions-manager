@@ -29,6 +29,8 @@
   --clr-accent-200: 3 71 56;
   --clr-accent-300: 3 77 44;
 
+  --box-shadow: 0.2px 0.2px 12px hsla(var(--clr-dark-100) / 0.2);
+
   --bg-light-gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
   --bg-dark-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
 
@@ -60,6 +62,10 @@ html[data-theme="light"] {
   --toggle-switch-thumb-bg: hsl(var(--clr-light-400));
   --toggle-switch-track-bg-checked: hsl(var(--clr-accent-300));
   --toggle-switch-thumb-bg-checked: hsl(var(--clr-light-400));
+
+  --article-bg: hsl(var(--clr-light-400));
+  --article-body-color: hsl(var(--clr-dark-100));
+  --article-border-color: hsl(var(--clr-light-100) / 0.5);
 }
 
 html[data-theme="dark"] {
@@ -85,6 +91,10 @@ html[data-theme="dark"] {
   --toggle-switch-thumb-bg: hsl(var(--clr-light-400));
   --toggle-switch-track-bg-checked: hsl(var(--clr-accent-100));
   --toggle-switch-thumb-bg-checked: hsl(var(--clr-light-400));
+
+  --article-bg: hsl(var(--clr-dark-200));
+  --article-body-color: hsl(var(--clr-light-100));
+  --article-border-color: hsl(var(--clr-dark-100) / 0.5);
 }
 
 /* === reset === */
@@ -200,5 +210,7 @@ button {
 
 .medium { font-weight: var(--fw-medium); }
 .semibold { font-weight: var(--fw-semibold); }
+
+.shadow-400 { box-shadow: var(--box-shadow); }
 
 /* === end of utilities === */

@@ -21,17 +21,17 @@
 
       <div class="flow" style="--flow-gap: 0.8rem">
         <h3>Default</h3>
-        <button class="button" type="button">Default</button>
+        <button class="button shadow-400" type="button">Default</button>
       </div> 
 
       <div class="flow" style="--flow-gap: 0.8rem">
         <h3>Active</h3>
-        <button class="button active" type="button">Active</button>
+        <button class="button active shadow-400" type="button">Active</button>
       </div>
 
       <div class="flow" style="--flow-gap: 0.8rem">
         <h3>Primary</h3>
-        <button class="button button-primary" type="button">Primary</button>
+        <button class="button button-primary shadow-400" type="button">Primary</button>
       </div> 
     </div>
 
@@ -85,6 +85,53 @@
           />
         </label>
       </div>
+    </div>
+
+    <div class="flow" style="--flow-gap: 1.6rem;">
+      <h2>Cards</h2>
+
+      <div class="flow" style="--flow-gap: 0.8rem">
+        <article class="extension-card shadow-400" aria-labelledby="DevLens">
+          <section class="extension-card__content-wrapper">
+            <img src="./assets/images/logo-devlens.svg" alt="DevLens Logo">
+
+            <section>
+              <header>
+                <h3
+                  class="fs-500 fw-semibold" 
+                  id="DevLens"
+                >
+                  DevLens
+                </h3>
+              </header>
+            
+              <section>
+                <p>Quickly inspect page layouts and visualize element boundaries.</p>
+              </section>
+            </section>
+          </section>
+
+          <footer>
+            <button 
+              class="button button-primary" 
+              type="button"
+            >
+              Remove
+            </button>
+
+            <label for="toggle-dev-lens">
+              <span class="sr-only">Enable DevLens extension</span>
+              <input
+                id="toggle-dev-lens" 
+                type="checkbox"
+                class="toggle switch"
+                
+                role="switch"
+              />
+            </label>
+          </footer>
+        </article>
+      </div> 
     </div>
   </main>
 

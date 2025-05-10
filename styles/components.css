@@ -142,5 +142,42 @@ input.toggle.switch[type="checkbox"][role="switch"]:focus {
 
 /* === end of toggle switch ===  */
 
+/* === extension card === */
+
+article.extension-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.6rem;
+  min-height: 20rem;
+  max-width: 40rem;
+
+  border-radius: 0.54em;
+  border: 1px solid var(--article-border-color);
+  background-color: var(--article-bg);
+
+  & .extension-card__content-wrapper {
+    display: flex;
+    align-items: start;
+    gap: 1.2rem; 
+  }
+  
+  & header {
+    margin-bottom: 1.2rem;
+  } 
+
+  & p {
+    color: var(--article-body-color);
+  }
+
+  & footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* === end of extension card === */
+
 
 
