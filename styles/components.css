@@ -41,6 +41,8 @@
 
 /* === end of button === */
 
+/* === theme toggle button */
+
 .toggle.theme[type="button"][role="switch"] {
   display: flex;
   align-items: center;
@@ -84,5 +86,60 @@
 .toggle[type="button"][role="switch"]:focus {
   outline: 2px solid var(--toggle-outline-focus);
   outline-offset: 2px;
-}   
+}
+
+/* === end of theme toggle button */
+
+/* === toggle switch ===  */
+
+input.toggle.switch[type="checkbox"][role="switch"] {
+  --thumb-size: 1.6rem;
+  --thumb-position: 0%;
+
+  --track-padding: 0.2rem;
+  --track-size: 3.6rem;
+
+  display: grid;
+  align-items: center;
+  grid: [track] 1fr / [track] 1fr;
+  inline-size: var(--track-size);
+  padding: var(--track-padding);
+  
+  background-color: var(--toggle-switch-track-bg);
+  border: none;
+  border-radius: var(--track-size);
+  
+  appearance: none;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    grid-area: track;
+    inline-size: var(--thumb-size);
+
+    background-color: var(--toggle-switch-thumb-bg);
+    border-radius: 50%;
+
+    transform: translateX(var(--thumb-position));
+    transition:
+      background-color 200ms ease,
+      transform 200ms ease,
+      box-shadow 250ms ease;
+    aspect-ratio: 1;
+  }
+
+  &:checked {
+    --thumb-position: 100%;
+    background-color: var(--toggle-switch-track-bg-checked);
+  }
+}
+
+input.toggle.switch[type="checkbox"][role="switch"]:focus {
+  outline: 2px solid var(--toggle-outline-focus);
+  outline-offset: 2px;
+}
+
+/* === end of toggle switch ===  */
+
+
 

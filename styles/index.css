@@ -48,6 +48,11 @@
   --btn-bg-primary-hover: hsl(var(--clr-accent-300));
 
   --toggle-outline-focus: hsl(var(--clr-accent-100));
+
+  --toggle-switch-track-bg: hsl(var(--clr-light-100));
+  --toggle-switch-thumb-bg: hsl(var(--clr-light-400));
+  --toggle-switch-track-bg-checked: hsl(var(--clr-accent-300));
+  --toggle-switch-thumb-bg-checked: hsl(var(--clr-light-400));
 }
 
 html[data-theme="light"] {
