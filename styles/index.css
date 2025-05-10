@@ -31,6 +31,21 @@
 
   --bg-light-gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
   --bg-dark-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+
+  /* TODO: Following variables should only be initialized based on the theme */
+  
+  --btn-border: hsl(var(--clr-light-100)); 
+  --btn-bg: hsl(var(--clr-light-400));
+  --btn-bg-hover: hsl(var(--clr-light-300));
+  --btn-outline-focus: hsl(var(--clr-accent-100));
+
+  --btn-border-active: hsl(var(--clr-accent-300));
+  --btn-color-active: hsl(var(--clr-light-400));
+  --btn-bg-active: hsl(var(--clr-accent-300));
+  --btn-bg-active-hover: hsl(var(--clr-accent-200));
+
+  --btn-color-primary-hover: hsl(var(--clr-light-400));
+  --btn-bg-primary-hover: hsl(var(--clr-accent-300));
 }
 
 /* === reset === */
@@ -122,5 +137,29 @@ button {
   margin-inline: auto;
   padding-inline: var(--container-padding, 2rem);
 }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+.flow > *:where(:not(:last-child)) {
+  margin-bottom: var(--flow-gap, 1.6rem);
+}
+
+.fs-400 { font-size: var(--fs-400); }
+.fs-500 { font-size: var(--fs-500); }
+.fs-600 { font-size: var(--fs-600); }
+.fs-700 { font-size: var(--fs-700); }
+
+.medium { font-weight: var(--fw-medium); }
+.semibold { font-weight: var(--fw-semibold); }
 
 /* === end of utilities === */
